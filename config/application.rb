@@ -18,5 +18,12 @@ module MyDeliveries
     config.load_defaults 7.1
     config.autoload_lib(ignore: %w[assets tasks])
     config.api_only = true
+
+    config.generators do |g|
+      g.orm :active_record, primary_key_type: :uuid
+
+      # noinspection RubyResolve
+      g.factory_bot filename_proc: ->(table_name) { "#{table_name.singularize}_factory" }
+    end
   end
 end

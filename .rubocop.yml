@@ -13,6 +13,10 @@ AllCops:
   SuggestExtensions: false
   NewCops: enable
 
+Rails/Output:
+  Exclude:
+    - db/**/*
+
 Style/Documentation:
   Enabled: false
 
