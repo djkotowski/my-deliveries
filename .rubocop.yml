@@ -1,0 +1,23 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+
+AllCops:
+  TargetRubyVersion: 3.2
+  Exclude:
+    - bin/**/*
+    - db/schema.rb
+    - log/**/*
+    - tmp/**/*
+    - vendor/**/*
+  SuggestExtensions: false
+  NewCops: enable
+
+Style/Documentation:
+  Enabled: false
+
+Style/HashSyntax:
+  EnforcedShorthandSyntax: consistent
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes

@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+local: &local
+  <<: *default
+  host: <%= ENV["DOCKER_DEV"].present? && ENV["DOCKER_DEV"].downcase != "false" ? "db" : "localhost" %>
+  port: 5432
+  username: postgres
+  password: postgres
+
+development:
+  <<: *local
+  database: my_deliveries_development
+
+test:
+  <<: *local
+  database: my_deliveries_test
+
+production:
+  <<: *default
+  host: <%= ENV["APP_DB_HOST"] %>
+  database: <%= ENV["APP_DB_NAME"] %>
+  username: <%= ENV["APP_DB_USERNAME"] %>
+  password: <%= ENV["APP_DB_PASSWORD"] %>

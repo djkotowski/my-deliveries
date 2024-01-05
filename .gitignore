@@ -1,0 +1,7 @@
+/.bundle
+/.env*
+!/.env*.erb
+/coverage
+/log/*
+/tmp/*
+/config/master.key
